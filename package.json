@@ -1,0 +1,14 @@
+{
+  "name": "ueg-site-test-suite",
+  "version": "1.0.0",
+  "description": "Direct headless test runners for live site",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test-ueg"
+  },
+  "author": "Asher Webb",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "nightmare": "^2.9.1"
+  }
+}
