@@ -10,5 +10,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "nightmare": "^2.9.1"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
   }
 }
