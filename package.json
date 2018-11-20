@@ -4,7 +4,7 @@
   "description": "Direct headless test runners for live site",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test-ueg"
+    "test": "jest test.test.js --detectOpenHandles"
   },
   "author": "Asher Webb",
   "license": "UNLICENSED",
