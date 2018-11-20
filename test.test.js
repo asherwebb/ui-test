@@ -1,5 +1,5 @@
 var Nightmare = require('nightmare');
-jest.setTimeout(30000)
+jest.setTimeout(60000)
 
 describe( 'integration testing', () => {
   it( 'should be able to reach home page', done => {
@@ -17,8 +17,7 @@ describe( 'integration testing', () => {
       })
       .end()
       .then( (result) => {
-        // console.log('console')
-        // expect( result.html ).toBeTruthy()
+        expect( result.html ).toBeTruthy()
         done()
       })
       .catch( done )
