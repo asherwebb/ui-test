@@ -28,19 +28,26 @@ describe( 'integration testing', () => {
       })
       .catch( done )
   })
-})
 
-// .goto('http://staging.usedequipmentguide.com/search')
-// .wait(1000)
-// .wait('#filters-bucket')
-// .evaluate( () => {
-//   return {
-//     url: window.location.href,
-//     html: document.querySelector("[href='/search?category=On-Highway']").innerHTML
-//   }
-// })
-// .end()
-// .then( (result) => {
-//   expect(result.html).toBe("On-Highway Trucks & Trailers")
-//   done()
-// })
+  it( 'should be able to reach the filter links on the search page', done => {
+    nightmare
+      .viewport(1500 + Math.floor(Math.random() * 400), 700 + Math.floor(Math.random() * 300))
+      .goto('http://staging.usedequipmentguide.com/search')
+      .wait(5000)
+      .wait('#filters-bucket')
+      .evaluate( () => {
+        return {
+          url: window.location.href,
+          html: document.querySelector("[href='/search?category=On-Highway']").innerHTML
+        }
+      })
+      .end()
+      .then( (result) => {
+        const decodedStr = result.html.replace( /&amp;/gi, '&' )
+        expect( decodedStr ).toMatch(/On-Highway Trucks & Trailers/)
+        done()
+      })
+      .catch(done)
+  })
+
+})
