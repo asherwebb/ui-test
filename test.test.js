@@ -1,9 +1,15 @@
-var Nightmare = require('nightmare');
-jest.setTimeout(60000)
+var Nightmare = require('nightmare')
 
 describe( 'integration testing', () => {
+  jest.setTimeout('60000')
+
+  let nightmare = null
+
+  beforeEach(() => {
+    nightmare = new Nightmare()
+  })
+
   it( 'should be able to reach home page', done => {
-    var nightmare = new Nightmare();
     nightmare
       .viewport(1500 + Math.floor(Math.random() * 400), 700 + Math.floor(Math.random() * 300))
       .goto('http://staging.usedequipmentguide.com')
@@ -23,3 +29,18 @@ describe( 'integration testing', () => {
       .catch( done )
   })
 })
+
+// .goto('http://staging.usedequipmentguide.com/search')
+// .wait(1000)
+// .wait('#filters-bucket')
+// .evaluate( () => {
+//   return {
+//     url: window.location.href,
+//     html: document.querySelector("[href='/search?category=On-Highway']").innerHTML
+//   }
+// })
+// .end()
+// .then( (result) => {
+//   expect(result.html).toBe("On-Highway Trucks & Trailers")
+//   done()
+// })
